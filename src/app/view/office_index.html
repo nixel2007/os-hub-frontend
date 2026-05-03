@@ -1,0 +1,11 @@
+<h1>Бек-офис ({{ Модель.ИмяПользователя }})</h1>
+
+<p>Количество пакетов: {{ Модель.КоличествоПакетов }}</p>
+
+<form method="POST" action="/office/MigrationData">
+    <button class="ui primary button" type="submit">Миграция данных</button>
+</form>
+
+<form method="GET" action="/office/logout" style="margin-top: 1em;">
+    <button class="ui button" type="submit">Выйти</button>
+</form>

@@ -4,13 +4,10 @@ services:
     build: .
     ports:
      - 8000:5000
-    volumes:
-     - ./docker/share:/var/www
-    environment: 
+    environment:
      - OSHUB_BINARY_ROOT=/opt/opm-hub/packages
      - GITHUB_SUPER_TOKEN
-     - OSWEB_Database__DBTYPE
-     - OSWEB_Database__CONNECTIONSTRING
+     - OSWEB_DATABASE__CONNECTIONSTRING
      - OSHUB_DEFAULT_USER
      - OSHUB_DEFAULT_PASSWORD
      - OSHUB_TG_NOTIFICATION
@@ -19,7 +16,8 @@ services:
     depends_on:
       - db
     volumes:
-      - C:/Users/ovsyankin.a.a/Documents/GITS/EvilBeaver/os-hub-frontend/tmp:/opt/opm-hub/packages/download
+      - ./docker/share:/var/www
+      - ./docker/packages:/opt/opm-hub/packages
   db:
     image: postgres
     ports:
@@ -27,6 +25,8 @@ services:
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
+    volumes:
+      - ./docker/database:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4
     environment:

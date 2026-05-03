@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Репозиторий пакетов 1Script</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"/>
+    <style>
+        body { font-family: 'Open Sans', sans-serif; }
+        .page-header {
+            width: 100%;
+            background-color: #00588c;
+            color: aliceblue;
+            padding: 2em 30px 2em 30px;
+            margin-top: 45px;
+        }
+        pre { background: #eee; padding: 10px; overflow-x: auto; }
+        code { background: #eee; }
+        .ui.form .inline.fields { margin: 0.5em; }
+        .ui.divider { margin-top: 30pt; }
+        p.centered { font-size: 14pt; text-align: center; }
+        .ui.grid.message {
+            background-color: #00588c;
+            color: aliceblue;
+            box-shadow: none;
+            border-radius: 0;
+        }
+        .ui.grid.message .row {
+            margin-top: 2.7em;
+            margin-bottom: 2.7em;
+            text-align: center;
+        }
+        .ui.grid.message .row p { line-height: 1.5; margin-top: 1em; }
+        .column p { font-size: 12pt; }
+        h1.ui.header, h2.ui.header { font-family: 'Segoe UI', Arial, Helvetica, Verdana, sans-serif; }
+        #search-form { margin-top: 2em; }
+    </style>
+</head>
+<body>
+{{ ВывестиПоШаблону("./app/view/_nav.html", Модель) }}
+@Контент
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+</body>
+</html>
