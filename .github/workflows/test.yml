@@ -1,0 +1,23 @@
+name: Тестирование
+
+on:
+  push:
+    branches:
+      - master
+      - 'claude/**'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        oscript_version: ['default', 'dev']
+    uses: autumn-library/workflows/.github/workflows/test.yml@v1
+    with:
+      oscript_version: ${{ matrix.oscript_version }}
+      test_engine: oneunit
+      oneunit_version: 0.3.3
+      test_dir_paths: tests
+      os_versions: '["ubuntu-latest", "windows-latest"]'

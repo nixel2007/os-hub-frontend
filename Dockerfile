@@ -30,8 +30,9 @@ RUN opm install opm \
     && opm update --all \
     && opm install autumn autumn-data winow markdown github messenger tempfiles fs strings logos
 
-COPY src /app
 WORKDIR /app
+COPY packagedef main.os autumn-properties.json nameRemap.json /app/
+COPY app /app/app
 RUN opm install -l
 
 EXPOSE 5000
