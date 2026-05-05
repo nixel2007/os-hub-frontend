@@ -1,0 +1,49 @@
+<div class="page-header">
+    <div class="ui container">
+        <h1>{{ Модель.PackageData.Название }}</h1>
+    </div>
+</div>
+
+<div class="ui container">
+    <p class="ui basic segment">
+{% Если ЗначениеЗаполнено(Модель.PackageData.Описание) Тогда %}
+        <em>{{ Модель.PackageData.Описание }}</em>
+{% КонецЕсли; %}
+    </p>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui grid">
+        <div class="row">
+            <div class="sixteen wide column">
+                <div class="ui pointing secondary menu">
+                    <a class="item active" data-tab="readme">Описание</a>
+                    <a class="item" data-tab="versions">Версии</a>
+                    <a class="item" data-tab="depends">Зависимости</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="thirteen wide column">
+                <div class="ui tab segment active" data-tab="readme">
+                    {{ Модель.DescriptionPage }}
+                </div>
+                <div class="ui tab segment" data-tab="versions">
+                    {{ ВывестиПоШаблону("./app/view/_packageVersions.html", Модель.Версии) }}
+                </div>
+                <div class="ui tab segment" data-tab="depends">
+                    В разработке
+                </div>
+            </div>
+            <div class="three wide column">
+                <p class="ui tiny header">Репозиторий</p>
+                <p><a href="{{ Модель.PackageData.АдресРепозитория }}">{{ Модель.PackageData.АдресРепозитория }}</a></p>
+                <p class="ui tiny header">Актуальная версия</p>
+                <p><a href="/download/{{ Модель.PackageData.Название }}/{{ Модель.PackageData.Название }}-{{ Модель.PackageData.АктуальнаяВерсия }}.ospx">{{ Модель.PackageData.Название }}-{{ Модель.PackageData.АктуальнаяВерсия }}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.pointing.menu .item').tab();
+</script>
